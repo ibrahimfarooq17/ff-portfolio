@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Preview from '../views/Preview';
 import HomeLight from '../views/all-home-version/HomeLight';
 import LightProfessionalAnimation from '../views/all-home-version/LightProfessionalAnimation';
@@ -19,29 +19,9 @@ const Routes = () => {
       <Router>
         <ScrollTopBehaviour />
         <Switch>
-          <Route exact path='/' component={HomeLightAnimation} />
-          {/* <Route path='/home-light' component={HomeLight} /> */}
-          {/* <Route path='/home-light-animation' component={HomeLightAnimation} /> */}
-          {/* <Route
-            path='/home-light-rtl-animation'
-            component={HomeLightRtlAnimation}
-          />
-          <Route
-            path='/home-light-sidebar-two'
-            component={HomeLightSidebarTwo}
-          />
-          <Route path='/dark-particle-effect' component={HomeDarkParticles} />
-          <Route
-            path='/home-light-professional'
-            component={LightProfessionalAnimation}
-          />
-          <Route
-            path='/home-light-professional-2'
-            component={HomeLightProfessional2}
-          />
-          <Route path='/home-dark' component={HomeDark} />
-          <Route path='/home-dark-animation' component={HomeDarkAnimation} /> */}
-          <Route component={NotFound} />
+          <Route path='/light' render={() => <HomeLightAnimation />} />
+          <Route exact path='/dark' render={() => <HomeDarkAnimation />} />
+          <Route render={() => <HomeLightAnimation />} />
         </Switch>
       </Router>
     </>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import TextLoop from 'react-text-loop';
 
 const conctInfo = {
@@ -26,12 +27,24 @@ const Slider = () => {
           </div>
           <div className='hb-lang'>
             <ul className='nav'>
-              <li className='active'>
-                <a href='#'>EN</a>
-              </li>
-              <li>
-                <a href='#'>FR</a>
-              </li>
+              <Link to='/light'>
+                <li
+                  className={
+                    !sessionStorage.getItem('dark') ? 'active' : 'null'
+                  }
+                  onClick={() => sessionStorage.removeItem('dark')}
+                >
+                  <a>Light</a>
+                </li>
+              </Link>
+              <Link to='/dark'>
+                <li
+                  className={sessionStorage.getItem('dark') ? 'active' : 'null'}
+                  onClick={() => window.location.reload()}
+                >
+                  <a>Dark</a>
+                </li>
+              </Link>
             </ul>
           </div>
         </div>
